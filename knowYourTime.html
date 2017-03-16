@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>KnowYourTime</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/knowYourTime.css"/>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	</head>
+	<body>
+		<!--页头-->
+		<header>
+			<nav>
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</nav>
+		</header>
+		<!--正文-->
+		<div id="mainOut">
+			<div id="mainIn">
+				<!--整体框架-->
+				<div id="theFrame">
+					<!--大按钮-->
+					<div id="bButton">
+						<!--点击该按钮开始记录时间点-->
+						<button id="btnGo">Tell Me</button>
+					</div>
+					<!--输入必要的信息备注-->
+					<div id="bTextIn">
+						<textarea id="infoTextIn" name="infoTextIn" rows="3" cols=""></textarea>
+					</div>
+					<!--结果展示-->
+					<div id="bDisplay"></div>
+				</div>
+			</div>
+		</div>
+		<!--页脚-->
+		<footer>wseven @2017</footer>
+		<script type="text/javascript">
+			//======构造函数创建类：======
+			function Infomation(timePoint,textThing){
+				//属性：
+//				this.timepoint = timePoint;
+				this.textthing = textThing;
+				//方法：
+				this.storemsg = function(){storeMessage(this.textthing);};
+			}
+			//=====对象方法：存储事件。=====
+			function storeMessage(text){
+				$.ajax({
+					type:"post",
+					url:"/php/submitThePoint.php",
+					data:{txt: text},
+					dataType:"json",
+					success:alert("登记事件成功。")
+				});
+			}
+			//=======创建一个对象：=======
+			function createInfo(){
+				//创建一个类的对象：
+				var xinInfo = new Infomation;
+				//收集text内容：
+				xinInfo.textthing = $("#infoTextIn").val();
+				//存储信息：
+				xinInfo.storemsg();
+			}
+			//======展示所有事件：=======
+			function displayInfos(){
+				$.ajax({
+					type:"get",
+					url:"/php/displayTheText.php",
+					dataType:"html",
+					success:function(data){
+						$("#bDisplay").html(data);
+					}
+				});
+			}
+			//======主函数：=======
+			function initFun(){
+				displayInfos();
+				$("#btnGo").click(function (){createInfo();displayInfos();});
+			}
+			initFun();
+		</script>
+	</body>
+</html>
