@@ -1,0 +1,110 @@
+#theFrame{
+	border: 1px solid;
+	border-radius: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	background: #fff;
+	padding-bottom: 20px;
+	
+	background: #484848;
+}
+#bButton{
+	margin-left: auto;
+	margin-right: auto;
+}
+#btnGo{
+	background: inherit;
+	border: 1px solid;
+	border-radius: 10px;
+	width: 100%;
+	font-family: "arial rounded mt";
+	
+	background: rgba(255,255,255,0.5);
+}
+#btnGo:hover{
+	border: 1px solid #fff;
+	color: #fff;
+	background: rgba(255,255,255,0.8);
+}
+#bTextIn{
+	margin-left: auto;
+	margin-right: auto;
+}
+#infoTextIn{
+	width: 100%;
+}
+#bDisplay{
+	margin-left: auto;
+	margin-right: auto;
+}
+.spDisplay{
+	border: 1px solid;
+	border-radius: 10px;
+	padding: 20px;
+	margin-top: 20px;
+	background: #fff;
+}
+/******************媒体查询*****************************/
+/*小屏幕时：*/
+@media only screen and (max-device-width: 768px) {
+	span{
+		display: block;
+	}
+	#theFrame{
+		width: 90%;
+		border-radius: 30px;
+		padding-bottom: 80px;
+	}
+	#bButton{
+		width: 60%;
+		margin-top: 80px;
+		
+	}
+	#btnGo{
+		font-size: 100px;
+		padding: 10px;
+		height: 200px;
+		border-radius: 50px;
+	}
+	#bTextIn{
+		width: 80%;
+		margin-top: 80px;
+	}
+	#infoTextIn{
+		font-size: 60px;
+		border-radius: 30px;
+		background: #c2e1a7;
+	}
+	#bDisplay{
+		width: 90%;
+		margin-top: 80px;
+		font-size: 50px;
+	}
+	.spDisplay{
+		border-radius: 30px;
+		margin-top: 50px;
+		padding: 50px;
+	}
+}
+/*大屏幕时：*/
+@media only screen and (min-device-width: 769px) {
+	#theFrame{
+		width: 60%;
+	}
+	#bButton{
+		width: 20%;
+		margin-top: 50px;
+	}
+	#btnGo{
+		font-size: 30px;
+		padding: 20px;
+	}
+	#bTextIn{
+		width: 60%;
+		margin-top: 30px;
+	}
+	#bDisplay{
+		width: 60%;
+		margin-top: 30px;
+	}
+}
